@@ -1,0 +1,8 @@
+{
+  "extends": "../../../tsconfig.json",
+  "include": ["./task.ts", "./user-management.ts"],
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "strictNullChecks": false
+  }
+}
