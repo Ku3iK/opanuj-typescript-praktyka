@@ -21,15 +21,22 @@ type SMSNotification = {
   message: string;
 };
 
-type SystemNotification = { type: '' };
+type SystemNotification = { type: ''; log: string };
 
 type Notification = EmailNotification | SMSNotification | SystemNotification;
 
-// ❌ Ta funkcja wymaga poprawy:
 export function getNotificationText(notification: Notification): string {
+  if ('log' in notification) {
+    return notification.log;
+  }
+
   if (notification.type === 'email') {
     return notification.content;
   }
 
-  return ' ';
+  if (notification.type === 'sms') {
+    return notification.message;
+  }
+
+  return 'Unknown notification';
 }
