@@ -6,8 +6,8 @@ function swapStrings(a: string, b: string): [string, string] {
   return [b, a];
 }
 
-export function swapBox(a, b) {
-  throw new Error('Not implemented');
+export function swapBox<A, B>(a: A, b: B) {
+  return [b, a];
 }
 
 const [n1, n2] = swapNumbers(10, 20);
