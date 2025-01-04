@@ -3,7 +3,15 @@ type Person = {
   lastName: string;
 };
 
-type FieldExtender<T, K> = Person;
+type InteriorField<Fields> = {
+  [Field in keyof Fields]: Fields[Field];
+};
+
+type FieldExtender<T, K> = {
+  [Prop in keyof T]: InteriorField<K> & {
+    value: string;
+  };
+};
 
 type PersonUpdateHistory = FieldExtender<
   Person,
