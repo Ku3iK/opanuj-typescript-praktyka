@@ -12,7 +12,9 @@ type APIClient = {
   deleteOrder: (id: number) => void;
 };
 
-type JustGetters<T> = T;
+type JustGetters<Type> = {
+  [Key in keyof Type as Key extends `get${string}` ? Key : never]: Type[Key];
+};
 
 type APIClientGetters = JustGetters<APIClient>;
 
