@@ -7,5 +7,5 @@ const configurations = {
 };
 
 for (const key of Object.keys(configurations)) {
-  console.log(`${key} => ${configurations[key]}`);
+  console.log(`${key} => ${configurations[key as keyof typeof configurations]}`);
 }
